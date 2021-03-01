@@ -1,0 +1,113 @@
+﻿@model IEnumerable<WebApp3.Models.Route>
+
+@{
+    ViewData["Title"] = "Routes";
+}
+
+<h1>Routes</h1>
+
+<p>
+    <a asp-action="Create">Offer New</a>
+</p>
+<hr />
+
+<div class="row mt-5 mb-2 ml-3 mr-3 align-content-center ">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="card" style="width:350px">
+
+
+                <div class="card-body">
+                    <h2>   @Html.DisplayFor(modelItem => item.Name) </h2>
+                    <p> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>
+                    <p>  @Html.DisplayNameFor(model => model.datafrom):  @Html.DisplayFor(modelItem => item.datafrom)m</p>
+                    <p>  @Html.DisplayFor(modelItem => item.Price) rub.</p>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+
+                </div>
+
+
+            </div>
+        }
+    }
+    </div>
+    @*<div class="row mt-5 mb-2 ml-5 align-content-center ">
+            @{
+                foreach (var item in Model)
+                {
+
+
+
+                    <div class=" col-lg-4">
+                        <h2>   @Html.DisplayFor(modelItem => item.Name) </h2>
+                        <p>  @Html.DisplayNameFor(model => model.HowManyPlaces): @Html.DisplayFor(modelItem => item.HowManyPlaces)</p>
+                        <p>  @Html.DisplayNameFor(model => model.datafrom):  @Html.DisplayFor(modelItem => item.datafrom)m</p>
+                        <p>   @Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)</p>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+
+                    </div>
+
+                }
+            }
+        </div>*@
+
+    @*<div class="container">
+            <div class="row">
+                <div class="col-sm">
+
+                </div>
+
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HowManyPlaces)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.datafrom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HowManyPlaces)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.datafrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@

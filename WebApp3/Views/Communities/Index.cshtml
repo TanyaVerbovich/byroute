@@ -1,0 +1,83 @@
+﻿@model IEnumerable<WebApp3.Models.Community>
+
+@{
+    ViewData["Title"] = "Travel blog";
+}
+
+<h1>Travel Blog</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<hr/>
+
+
+<div class="row mt-5 mb-2 ml-3 mr-3 align-content-center ">
+    @{
+        foreach (var item in Model)
+        {
+
+
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src= @Html.DisplayFor(modelItem => item.Pic) alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title"> @Html.DisplayFor(modelItem => item.UserName)</h4>
+                    <p class="card-text">   @Html.DisplayFor(modelItem => item.Description)</p>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </div>
+            </div>
+            @*<div class="card bg-light">
+
+
+
+                <div class=" col-lg-4">
+                    <h2>    @Html.DisplayNameFor(modelItem => item.UserName) </h2>
+                    <p>    @Html.DisplayFor(modelItem => item.Description)</p>
+                    <p>    @Html.DisplayFor(modelItem => item.Pic)m</p>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+
+                </div>*@
+
+                }
+                }
+            </div>
+            @*<table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Pic)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Pic)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </td>
+                        </tr>
+                }
+                    </tbody>
+                </table>*@
