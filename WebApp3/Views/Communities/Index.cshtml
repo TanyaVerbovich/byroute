@@ -16,10 +16,10 @@
     @{
         foreach (var item in Model)
         {
-
+            @*@Html.DisplayFor(modelItem => item.Pic)*@
 
             <div class="card" style="width:350px">
-                <img class="card-img-top" src= @Html.DisplayFor(modelItem => item.Pic) alt="Card image">
+                <img class="card-img-top" src="~/Content/img22.jpg" alt="Card image">
                 <div class="card-body">
                     <h4 class="card-title"> @Html.DisplayFor(modelItem => item.UserName)</h4>
                     <p class="card-text">   @Html.DisplayFor(modelItem => item.Description)</p>
@@ -42,9 +42,9 @@
 
                 </div>*@
 
-                }
-                }
-            </div>
+        }
+    }
+</div>
             @*<table class="table">
                     <thead>
                         <tr>

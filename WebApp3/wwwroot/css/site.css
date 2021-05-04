@@ -11,7 +11,6 @@ a.navbar-brand {
 a {
     color: #8f008e;
 }
-
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -19,9 +18,12 @@ a {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+img {
+    height:70px;
 }
 
 /* Sticky footer styles

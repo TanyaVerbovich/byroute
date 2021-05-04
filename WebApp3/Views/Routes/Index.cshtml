@@ -12,27 +12,35 @@
 <hr />
 
 <div class="row mt-5 mb-2 ml-3 mr-3 align-content-center ">
-    @{
-        foreach (var item in Model)
-        {
+   @{
+       foreach (var item in Model)
+       {
             <div class="card" style="width:350px">
+                
+
+                   <div class="card-body">
+                       <h2>   @Html.DisplayFor(modelItem => item.Name) </h2>
+                       <p> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>
+                       <p>  @Html.DisplayNameFor(model => model.datafrom):  @Html.DisplayFor(modelItem => item.datafrom)m</p>
+                       <p>  @Html.DisplayFor(modelItem => item.Price) rub.</p>
+                       <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                       <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                       <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                       @if (item.isFav)
+                       { <a class="nav-link text-danger float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/heart.png" alt="logo" /></a>
+                       }
+                       else {<a class="nav-link text-dark float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/notheart.png" alt="logo" /></a> }
 
 
-                <div class="card-body">
-                    <h2>   @Html.DisplayFor(modelItem => item.Name) </h2>
-                    <p> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>
-                    <p>  @Html.DisplayNameFor(model => model.datafrom):  @Html.DisplayFor(modelItem => item.datafrom)m</p>
-                    <p>  @Html.DisplayFor(modelItem => item.Price) rub.</p>
-                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-
-                </div>
+                   </div>
 
 
             </div>
-        }
+       }
+       
     }
+    
+    
     </div>
     @*<div class="row mt-5 mb-2 ml-5 align-content-center ">
             @{

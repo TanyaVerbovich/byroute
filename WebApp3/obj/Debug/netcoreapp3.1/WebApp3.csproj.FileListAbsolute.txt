@@ -187,3 +187,4 @@ C:\Users\User\Desktop\курсач\WebApp3\WebApp3\obj\Debug\netcoreapp3.1\Razor
 C:\Users\User\Desktop\курсач\WebApp3\WebApp3\obj\Debug\netcoreapp3.1\Razor\Views\Communities\Edit.cshtml.g.cs
 C:\Users\User\Desktop\курсач\WebApp3\WebApp3\obj\Debug\netcoreapp3.1\Razor\Views\Communities\Index.cshtml.g.cs
 C:\Users\User\Desktop\курсач\WebApp3\WebApp3\obj\Debug\netcoreapp3.1\Razor\Views\Routes\ShowFav.cshtml.g.cs
+C:\Users\User\Desktop\курсач\WebApp3\WebApp3\obj\Debug\netcoreapp3.1\Razor\Views\Routes\Like.cshtml.g.cs

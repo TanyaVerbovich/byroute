@@ -9,6 +9,10 @@
     <Compile Remove="Views\Routes\Commun.cshtml.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\js\gettingimg.ts" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
