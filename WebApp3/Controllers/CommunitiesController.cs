@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using WebApp3.Data;
 using WebApp3.Models;
+
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApp3.Controllers
 {
@@ -44,6 +47,7 @@ namespace WebApp3.Controllers
         }
 
         // GET: Communities/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,10 +58,11 @@ namespace WebApp3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,UserName,Description,Pic")] Community community)
+        public async Task<IActionResult> Create([Bind("id,UserName,Description,Pic, Name")] Community community)
         {
             if (ModelState.IsValid)
             {
+                community.UserName = User.Identity.Name;
                 _context.Add(community);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +91,7 @@ namespace WebApp3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,UserName,Description,Pic")] Community community)
+        public async Task<IActionResult> Edit(int id, [Bind("id,UserName,Description,Pic, Name")] Community community)
         {
             if (id != community.id)
             {
@@ -97,6 +102,7 @@ namespace WebApp3.Controllers
             {
                 try
                 {
+                    community.UserName = User.Identity.Name;
                     _context.Update(community);
                     await _context.SaveChangesAsync();
                 }
@@ -133,6 +139,22 @@ namespace WebApp3.Controllers
 
             return View(community);
         }
+        //public async FileContentResult GetImage(int? id)
+        //{
+        //    Community community = await _context.Community
+        //        .FirstOrDefaultAsync(m => m.id == id);
+
+           
+        //    if (community != null)
+        //    {
+        //        return File(community.bytePic, community.Pic);
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
+
 
         // POST: Communities/Delete/5
         [HttpPost, ActionName("Delete")]

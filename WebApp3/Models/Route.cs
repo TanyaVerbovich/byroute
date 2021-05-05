@@ -16,5 +16,7 @@ namespace WebApp3.Models
         public long Telephone { set; get; }
         public bool isFav { get; set; }
 
+        public string UserName { get; set; }
+
     }
 }

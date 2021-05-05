@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApp3.Data;
 using WebApp3.Models;
-
+using Microsoft.AspNetCore.Identity;
 namespace WebApp3.Controllers
 {
     public class RoutesController : Controller
@@ -109,67 +109,7 @@ namespace WebApp3.Controllers
             return View(await _context.Route.ToListAsync());
         }
         
-        //public async Task<IActionResult> Like(int id, [Bind("id,Name,HowManyPlaces,place,datafrom,Price,Telephone,isFav")] Route route)
-
-        //{
-        //    if (route.isFav.Equals(false))
-        //    {
-        //        route.isFav = true;
-
-        //    }
-
-        //    else
-        //    {
-        //        route.isFav = false;
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(route);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!RouteExists(route.id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Like));
-        //    }
-        //}
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var route = await _context.Route.FindAsync(id);
-
-            //var isFav = route.isFav;
-
-            //if (isFav.Equals(false))
-            //{
-            //    isFav = true;
-
-            //}
-
-            //else
-            //{
-            //    isFav = false;
-            //}
-            //return View(await _context.Route.ToListAsync());
-            ////var isFav = await _context.Route.FirstOrDefault.FirstOrDefault.isFav(j=>)
-            ////if (isFav == true)
-            ////return View("Index", await _context.Route.Where(j => j.isFav.Equals(true)).ToListAsync());
-        
-    
-              
+                    
 
         
 
@@ -207,6 +147,7 @@ namespace WebApp3.Controllers
         {
             if (ModelState.IsValid)
             {
+                route.UserName = User.Identity.Name;
                 _context.Add(route);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -248,6 +189,7 @@ namespace WebApp3.Controllers
             {
                 try
                 {
+                    route.UserName = User.Identity.Name;
                     _context.Update(route);
                     await _context.SaveChangesAsync();
                 }

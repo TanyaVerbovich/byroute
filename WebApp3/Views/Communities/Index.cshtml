@@ -18,16 +18,29 @@
         {
             @*@Html.DisplayFor(modelItem => item.Pic)*@
 
-            <div class="card" style="width:350px">
-                <img class="card-img-top" src="~/Content/img22.jpg" alt="Card image">
-                <div class="card-body">
-                    <h4 class="card-title"> @Html.DisplayFor(modelItem => item.UserName)</h4>
-                    <p class="card-text">   @Html.DisplayFor(modelItem => item.Description)</p>
-                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                </div>
+    <div class="card" style="width:350px">
+        @if (item.UserName == User.Identity.Name)
+        {
+            <img class="card-img-top" src=@item.Pic alt="KAKOVA NE GRUZITSA AAAAAAAAA">
+            <div class="card-body">
+                <h4 class="card-title"> @Html.DisplayFor(modelItem => item.Name)</h4>
+                <p class="card-text">   @Html.DisplayFor(modelItem => item.Description)</p>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </div>
+        }
+        else
+        {
+            <img class="card-img-top" src=@item.Pic alt="KAKOVA NE GRUZITSA AAAAAAAAA">
+            <div class="card-body">
+                <h4 class="card-title"> @Html.DisplayFor(modelItem => item.Name)</h4>
+                <p class="card-text">   @Html.DisplayFor(modelItem => item.Description)</p>
+               
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+            </div>
+        }
+    </div>
             @*<div class="card bg-light">
 
 

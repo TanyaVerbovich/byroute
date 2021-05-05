@@ -37,8 +37,47 @@ html {
   }
 }
 
+/*form {
+    width: auto;
+    float: right;
+    margin-right: 30px;
+}
+
+input {
+    width: 150px;
+    height: 42px;
+    padding-left: 15px;
+    border-radius: 42px;
+    border: 2px solid #324b4e;
+    outline: none;
+    position: relative;
+    transition: .3s linear;
+}
+
+    input:focus {
+        width: 200px;
+    }
+
+button {
+    width: 42px;
+    height: 42px;
+    background: none;
+    border: none;
+    /*position: absolute;*/
+    top: -2px;
+    right: 0;
+}
+
+    button:before {
+        content: "\f002";
+        font-family: FontAwesome;
+        color: #324b4e;
+    }*/
+
+
+
 .border-top {
-  border-top: 3px solid #e5e5e5;
+    border-top: 3px solid #e5e5e5;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
@@ -83,4 +122,10 @@ body {
 .col-sm
 {
 text-align: left;
+}
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    height: 250px;
 }
