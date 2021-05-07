@@ -18,44 +18,69 @@
         <div class="card" style="width:350px">
 
 
-            <div class="card-body">
-                @if (item.UserName == User.Identity.Name)
-                {
-                    <h4> <img src="~/Content/town.png" alt="logo" />  @Html.DisplayFor(modelItem => item.Name) </h4>
-                    @for (var i = 0; i < item.HowManyPlaces; i++)
-                    {<img src="~/Content/places.png" alt="logo" />}
-                    @*<p><img src="~/Content/places.png" alt="logo" /> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>*@
-                    <p>  <img src="~/Content/time.png" alt="logo" />  @Html.DisplayFor(modelItem => item.datafrom)</p>
-                    <p>  <img src="~/Content/money.png" alt="logo" /> @Html.DisplayFor(modelItem => item.Price) rub</p>
-                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.id">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                    @if (item.isFav)
-                    {<a class="nav-link text-danger float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/heart.png" alt="logo" /></a>
+                <div class="card-body">
+                    @if (item.UserName == User.Identity.Name)
+                    {
+                        <h4> <img src="~/Content/town.png" alt="logo" />  @Html.DisplayFor(modelItem => item.Name) </h4>
+                        @for (var i = 0; i < item.HowManyPlaces; i++)
+                        {<img src="~/Content/places.png" alt="logo" />}
+                        @*<p><img src="~/Content/places.png" alt="logo" /> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>*@
+                        <p>  <img src="~/Content/time.png" alt="logo" />  @Html.DisplayFor(modelItem => item.datafrom)</p>
+                        <p>  <img src="~/Content/money.png" alt="logo" /> @Html.DisplayFor(modelItem => item.Price) rub</p>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                        @if (item.isFav)
+                        {<a class="nav-link text-danger float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/heart.png" alt="logo" /></a>
+                        }
+                        else
+                        {<a class="nav-link text-dark float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/notheart.png" alt="logo" /></a>}
+
                     }
-                    else
-                    {<a class="nav-link text-dark float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/notheart.png" alt="logo" /></a>}
 
-                }
-                else
-                {
-                    <h4> <img src="~/Content/town.png" alt="logo" />  @Html.DisplayFor(modelItem => item.Name) </h4>
-                    @for (var i = 0; i < item.HowManyPlaces; i++)
-                    {<img src="~/Content/places.png" alt="logo" />}
-                    @*<p><img src="~/Content/places.png" alt="logo" /> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>*@
-                    <p>  <img src="~/Content/time.png" alt="logo" />  @Html.DisplayFor(modelItem => item.datafrom)</p>
-                    <p>  <img src="~/Content/money.png" alt="logo" /> @Html.DisplayFor(modelItem => item.Price) rub</p>
 
-                    <a asp-action="Details" asp-route-id="@item.id">Details</a>
+                    else if (User.Identity.Name == "tanya3@routes.com")
+                    {
+                        <h4> <img src="~/Content/town.png" alt="logo" />  @Html.DisplayFor(modelItem => item.Name) </h4>
+                        @for (var i = 0; i < item.HowManyPlaces; i++)
+                        {
+                            <img src="~/Content/places.png" alt="logo" />
+                        }
+                        @*<p><img src="~/Content/places.png" alt="logo" /> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>*@
+                        <p>  <img src="~/Content/time.png" alt="logo" />  @Html.DisplayFor(modelItem => item.datafrom)</p>
+                        <p>  <img src="~/Content/money.png" alt="logo" /> @Html.DisplayFor(modelItem => item.Price) rub</p>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                        @if (item.isFav)
+                        {<a class="nav-link text-danger float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/heart.png" alt="logo" /></a>
+                        }
+                        else
+                        {<a class="nav-link text-dark float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/notheart.png" alt="logo" /></a>}
 
-                    @if (item.isFav)
-                    {<a class="nav-link text-danger float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/heart.png" alt="logo" /></a>
                     }
-                    else
-                    {<a class="nav-link text-dark float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/notheart.png" alt="logo" /></a>}
 
-                }
-            </div>
+                    else if (item.UserName != User.Identity.Name)
+                    {
+                        <h4> <img src="~/Content/town.png" alt="logo" />  @Html.DisplayFor(modelItem => item.Name) </h4>
+                        @for (var i = 0; i < item.HowManyPlaces; i++)
+                        {<img src="~/Content/places.png" alt="logo" />}
+                        @*<p><img src="~/Content/places.png" alt="logo" /> @Html.DisplayFor(modelItem => item.HowManyPlaces) places </p>*@
+                        <p>  <img src="~/Content/time.png" alt="logo" />  @Html.DisplayFor(modelItem => item.datafrom)</p>
+                        <p>  <img src="~/Content/money.png" alt="logo" /> @Html.DisplayFor(modelItem => item.Price) rub</p>
+
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a>
+
+                        @if (item.isFav)
+                        {<a class="nav-link text-danger float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/heart.png" alt="logo" /></a>
+                        }
+                        else
+                        {<a class="nav-link text-dark float-right" asp-action="Like" asp-route-id="@item.id"><img src="~/Content/notheart.png" alt="logo" /></a>}
+
+                    }
+
+
+                </div>
 
 
 
